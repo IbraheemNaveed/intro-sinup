@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Frontend Mentor | Intro component with sign up form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body  class=" bg-[url('/bg-intro-desktop.png')] bg-[#FF7A7A]" > 
+
+  <div class="flex flex-col sm:flex-row justify-evenly ">
+  <div class=" text-[#FFFFFF] sm:w-1/2 py-20 w-2/3 text-justify"  > 
+    <h1 class=" text-5xl"> Learn Code by   </h1> 
+    <h1 class=" text-5xl">watching others</h1>
+      <p class=" text-xl py-5">see how experienced developers solve problems in real time.watching scripted tutortials is great but understandiing how developers thinks is invalueable. </p>
+  </div>
+
+  <div >
+  <div class=" py-4 ">
+    <p class=" bg-[#6055A5] text-[#FFFFFf] shadow-2xl text-center rounded-lg py-3 shadow-[#728f8d18] ">Try it for free 7 days the $20/mo. thereafter</p>
+  </div>
+  <div class="flex flex-col bg-[#FFFFFF] py-4 px-4 gap-4 ">
+    <input  class=" px-5 sm:px-28 py-3 border-2 rounded border-[#B1ACDC] border  hover:border-4 transition-all duration-200 input "  type="text"  id="fname"  placeholder=" First Name " />
+    <p class="opacity-0 text-red-500">Please enter your First name </p>
+    <input  class=" px-5 sm:px-28 py-3 border-2 rounded border-[#B1ACDC] hover:border-4 transition-all duration-200 input "  type="text"  id="lname"  placeholder=" Last Name " />
+    <p class="opacity-0 text-red-500">Please enter your Last name</p>
+    <input  class=" px-5 sm:px-28 py-3 border-2 rounded border-[#B1ACDC] hover:border-4 transition-all duration-200 input "  type="email"  id="email"  placeholder=" Email Adress " />
+    <p class="opacity-0 text-red-500">Please enter your Email</p>
+    <input  class=" px-5 sm:px-28 py-3 border-2 rounded border-[#B1ACDC] hover:border-4 transition-all duration-200 input "  type="password"  id="password"  placeholder=" Password " />
+    <p class="opacity-0 text-red-500">Please enter your First   Password</p>
+        
+          
+    <button  class="trailBtn bg-[#38CC8C] hover:border-4 border-[#38CC8C] py-3 rounded-xl transition-all duration-200 "  >
+               
+      Claim Your Free Trail 
+  </button>
+              
+  </div>
+</div>
+
+</div>
+
+<script>
+const allInputs = document.querySelectorAll('input');
+allInputs.forEach(element => {
+  element.addEventListener('input', (i)=>{
+    let Value = i.target.Value;
+    checkError(element);
+  })
+  
+});
+function showError(input){
+  const error = input.nextElementSibling;
+  error.classList.remove('opacity-0');
+  
+}
+
+const trailBtnn = document.querySelector('.trailBtn');
+trailBtnn.addEventListener('click' , ()=> {
+  allInputs.forEach (element=>{
+    checkError(element);
+  })
+} )
+function hideError(input){
+  // console.log(input)
+  const error = input.nextElementSibling;
+  error.classList.add('opacity-0');
+  console.log(input.nextElementSibling);
+  
+  
+}
+function checkError(element)
+{
+  if(element.value == ''){
+      showError(element);
+    }else{
+      hideError(element);
+    }
+}
+
+</script>
+  
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Ibraheem Naveed</a>.
+    </p>
+  </footer>
+</body>
+</html>
